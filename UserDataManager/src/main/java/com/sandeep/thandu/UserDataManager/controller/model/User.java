@@ -12,6 +12,19 @@ public class User {
     private String firstName;
     private String lastName;
     private String address1;
+
+    public User() {
+    }
+
+    public User(Long id, int age, String firstName, String lastName, String address1, String address2) {
+        this.id = id;
+        this.age = age;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address1 = address1;
+        this.address2 = address2;
+    }
+
     private String address2;
 
     public int getAge() {
