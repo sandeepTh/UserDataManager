@@ -1,13 +1,11 @@
 package com.sandeep.thandu.UserDataManager.controller;
 
-import com.sandeep.thandu.UserDataManager.controller.model.User;
-import com.sandeep.thandu.UserDataManager.repository.UserRepository;
+import com.sandeep.thandu.UserDataManager.model.User;
 import com.sandeep.thandu.UserDataManager.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/user")

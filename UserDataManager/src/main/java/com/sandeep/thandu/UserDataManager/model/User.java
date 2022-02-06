@@ -1,4 +1,4 @@
-package com.sandeep.thandu.UserDataManager.controller.model;
+package com.sandeep.thandu.UserDataManager.model;
 
 import javax.persistence.*;
 

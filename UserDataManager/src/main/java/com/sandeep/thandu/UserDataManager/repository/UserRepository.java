@@ -1,6 +1,6 @@
 package com.sandeep.thandu.UserDataManager.repository;
 
-import com.sandeep.thandu.UserDataManager.controller.model.User;
+import com.sandeep.thandu.UserDataManager.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

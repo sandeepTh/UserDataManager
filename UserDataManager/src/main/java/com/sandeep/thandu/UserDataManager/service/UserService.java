@@ -1,10 +1,9 @@
 package com.sandeep.thandu.UserDataManager.service;
 
-import com.sandeep.thandu.UserDataManager.controller.model.User;
+import com.sandeep.thandu.UserDataManager.model.User;
 import com.sandeep.thandu.UserDataManager.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Comparator;
 import java.util.List;
