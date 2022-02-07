@@ -1,6 +1,6 @@
 package com.sandeep.thandu.UserDataManager.controller;
 
-import com.sandeep.thandu.UserDataManager.model.User;
+import com.sandeep.thandu.UserDataManager.model.UserInfo;
 import com.sandeep.thandu.UserDataManager.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -29,10 +29,10 @@ class UserControllerTest {
 
     @Test
     void getUsers() throws Exception {
-    User user1 = new User(1L,3,"FN1","LN","AD1","AD2");
-    User user2 = new User(2L,4,"FN2","LN","AD1","AD2");
-    User user3 = new User(3L,5,"FN3","LN","AD1","AD2");
-    List<User> userList = Arrays.asList(user1,user2,user3);
+    UserInfo user1 = new UserInfo(1L,3,"FN1","LN","AD1","AD2");
+    UserInfo user2 = new UserInfo(2L,4,"FN2","LN","AD1","AD2");
+    UserInfo user3 = new UserInfo(3L,5,"FN3","LN","AD1","AD2");
+    List<UserInfo> userList = Arrays.asList(user1,user2,user3);
         Mockito.when(userService.getUsers()).thenReturn(userList);
         MvcResult mvcResult = mockMvc.perform(
             MockMvcRequestBuilders.get("/user/all")

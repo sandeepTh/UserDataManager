@@ -1,18 +1,21 @@
 package com.sandeep.thandu.UserDataManager.repository;
 
-import com.sandeep.thandu.UserDataManager.model.User;
+import com.sandeep.thandu.UserDataManager.model.UserInfo;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface UserRepository extends JpaRepository<User,Long> {
+public interface UserRepository extends JpaRepository<UserInfo,Long> {
 
 
-    List<User> findByLastName(String lastName);
+    List<UserInfo> findByLastName(String lastName);
 
-    List<User> findByAge(int age);
+    List<UserInfo> findByAge(int age);
 
-    List<User> findByFirstName(String firstName);
+    List<UserInfo> findByFirstName(String firstName);
+
+    List<UserInfo> findAllByAgeAndLastName(int age, String lastName);
 }

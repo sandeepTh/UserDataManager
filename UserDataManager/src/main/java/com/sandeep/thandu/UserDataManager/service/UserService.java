@@ -1,6 +1,6 @@
 package com.sandeep.thandu.UserDataManager.service;
 
-import com.sandeep.thandu.UserDataManager.model.User;
+import com.sandeep.thandu.UserDataManager.model.UserInfo;
 import com.sandeep.thandu.UserDataManager.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,45 +16,48 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public List<User> getUsers() {
+    public List<UserInfo> getUsers() {
         return userRepository.findAll();
     }
 
-    public void addUser(User user) {
+    public void addUser(UserInfo user) {
         userRepository.save(user);
     }
 
     //ToDO:
-    public List<User> getUsersByLastName(String lastName) {
+    public List<UserInfo> getUsersByLastName(String lastName) {
         return userRepository.findByLastName(lastName);
     }
 
 
-    public List<User> getUsersByFirstName(String firstName) {
+    public List<UserInfo> getUsersByFirstName(String firstName) {
         return userRepository.findByFirstName(firstName);
     }
 
 
-    public List<User> getUsersByAge(int age) {
+    public List<UserInfo> getUsersByAge(int age) {
         return userRepository.findByAge(age);
     }
 
     //sort By Age
-    public List<User> sortUsersByAge() {
-        List<User> userListByAge = userRepository.findAll().stream().sorted(Comparator.comparing(User::getAge)).collect(Collectors.toList());
+    public List<UserInfo> sortUsersByAge() {
+        List<UserInfo> userListByAge = userRepository.findAll().stream().sorted(Comparator.comparing(UserInfo::getAge)).collect(Collectors.toList());
         return userListByAge;
     }
 
     //sort By FirstName
-    public List<User> sortUsersByFirstName() {
-        List<User> usersListByFirstName = userRepository.findAll().stream().sorted(Comparator.comparing(User::getFirstName)).collect(Collectors.toList());
+    public List<UserInfo> sortUsersByFirstName() {
+        List<UserInfo> usersListByFirstName = userRepository.findAll().stream().sorted(Comparator.comparing(UserInfo::getFirstName)).collect(Collectors.toList());
         return usersListByFirstName;
     }
 
-    public List<User> getUsersByAgeLastName(int age, String lastName) {
-        List<User> userListAge =userRepository.findByAge(age);
-        List<User> userListLastName =userRepository.findByLastName(lastName);
-        List<User> combinedList = Stream.concat(userListAge.stream(),userListLastName.stream()).collect(Collectors.toList());
-        return combinedList;
+    public List<UserInfo> getUsersByAgeLastName(int age, String lastName) {
+       // List<UserInfo> userListAge =userRepository.findByAge(age);
+        //List<UserInfo> userListLastName =userRepository.findByLastName(lastName);
+        return userRepository.  findAllByAgeAndLastName(age,lastName);
+
+        //findAllByPriceBetweenAndCityAndRentORbuyAndUtilitiesBetweenAndNumberOfBedsBetweenAndNum
+        //List<UserInfo> combinedList = Stream.concat(userListAge.stream(),userListLastName.stream()).collect(Collectors.toList());
+        //return combinedList;
     }
 }

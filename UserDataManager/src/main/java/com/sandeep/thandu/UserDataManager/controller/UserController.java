@@ -1,10 +1,10 @@
 package com.sandeep.thandu.UserDataManager.controller;
 
-import com.sandeep.thandu.UserDataManager.model.User;
+
 import com.sandeep.thandu.UserDataManager.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+import com.sandeep.thandu.UserDataManager.model.*;
 import java.util.List;
 
 @RestController
@@ -18,7 +18,7 @@ public class UserController {
     Display all users
      */
     @GetMapping("/all")
-    public List<User> getUsers(){
+    public List<UserInfo> getUsers(){
         return userService.getUsers();
     }
 
@@ -26,7 +26,7 @@ public class UserController {
      Add User Object
      */
     @PostMapping("/add")
-    public void addUser(@RequestBody User user){
+    public void addUser(@RequestBody UserInfo user){
         userService.addUser(user);
     }
 
@@ -34,7 +34,7 @@ public class UserController {
     filter By LastName
      */
     @GetMapping("/search/lastName")
-    public List<User> getUserByLastName(@RequestParam("lastName") String lastName){
+    public List<UserInfo> getUserByLastName(@RequestParam("lastName") String lastName){
         return userService.getUsersByLastName(lastName);
     }
 
@@ -42,7 +42,7 @@ public class UserController {
     filter By Age
      */
     @GetMapping("/search/age")
-    public List<User> getUserByAge(@RequestParam("age") int age){
+    public List<UserInfo> getUserByAge(@RequestParam("age") int age){
         return userService.getUsersByAge(age);
     }
 
@@ -50,7 +50,7 @@ public class UserController {
     filter By Age and LastName and Age
      */
     @GetMapping("/search")
-    public List<User> getUserByAge(@RequestParam("age") int age, @RequestParam("lastName") String lastName){
+    public List<UserInfo> getUserByAge(@RequestParam("age") int age, @RequestParam("lastName") String lastName){
         return userService.getUsersByAgeLastName(age, lastName);
     }
 
@@ -58,7 +58,7 @@ public class UserController {
       Sort By FirstName
      */
     @GetMapping("/fName")
-    public List<User> sortUsersByFirstName(){
+    public List<UserInfo> sortUsersByFirstName(){
         return userService.sortUsersByFirstName();
     }
 
@@ -66,7 +66,7 @@ public class UserController {
     Sort By Age
      */
     @GetMapping("/age")
-    public List<User> sortUsersByAge(){
+    public List<UserInfo> sortUsersByAge(){
         return userService.sortUsersByAge();
     }
 }

@@ -1,9 +1,12 @@
 package com.sandeep.thandu.UserDataManager.model;
 
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import javax.persistence.*;
 
-@Entity
-public class User {
+@Entity(name = "User")
+//@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
+public class UserInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
@@ -13,10 +16,10 @@ public class User {
     private String lastName;
     private String address1;
 
-    public User() {
+    public UserInfo() {
     }
 
-    public User(Long id, int age, String firstName, String lastName, String address1, String address2) {
+    public UserInfo(Long id, int age, String firstName, String lastName, String address1, String address2) {
         this.id = id;
         this.age = age;
         this.firstName = firstName;
